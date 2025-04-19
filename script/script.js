@@ -3,6 +3,8 @@ import { Cliente } from './Cliente.js';
 
 
 
+
+
 const form = document.getElementById("formulario").addEventListener("submit", (e) => {
     e.preventDefault();
 
@@ -11,7 +13,7 @@ const form = document.getElementById("formulario").addEventListener("submit", (e
     const cnh = document.getElementById("cnh").value;
     const possuiCarro = document.getElementById("veiculo").value;
 
-    
+
 
 
 
@@ -19,15 +21,15 @@ const form = document.getElementById("formulario").addEventListener("submit", (e
     if (!nome || isNaN(cnh)) {
         alert("preencha todos os Campos");
 
-    }else if (possuiCarro === "sim") {
-    
+    } else if (possuiCarro === "sim") {
 
-        localStorage.setItem("temp",JSON.stringify({
+
+        localStorage.setItem("temp", JSON.stringify({
             nome: nome,
             cnh: cnh,
         }))
         window.location.href = "cadastro-veiculo.html?id=1"
-        
+
 
 
     } else {
@@ -42,46 +44,5 @@ const form = document.getElementById("formulario").addEventListener("submit", (e
         document.getElementById("nome").value = "";
         document.getElementById("cnh").value = "";
 
-
     }
-
-
-
-})
-
-
-
-
-
-
-
-//cadastro veiculo;
-
-const formveiculo = document.getElementById("formveiculo").addEventListener("submit", (e) => {
-    e.preventDefault();
-
-
-    //veiculo
-    const placa = document.getElementById("placa").value;
-    const modelo = document.getElementById("modelo").value;
-    const cor = document.getElementById("cor").value;
-
-    const idpage = window.location.search.substring(1);
-
-
-    if(idpage){
-
-        const temp = JSON.parse(localStorage.get("temp"));
-
-
-
-        let cliente = new Cliente(temp.nome,temp.cnh,placa,modelo,cor);
-        BancoDeDados.salvar(cliente);
-        
-
-    }
-    alert("okkkkkkkkk")
-
-
 });
-    

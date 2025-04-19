@@ -1,0 +1,15 @@
+body{
+    display: flex;
+    justify-content: center;
+}
+input{
+    margin: 10px auto;
+}
+button{
+    margin: 10px auto;
+}
+form{
+    background-color: rgb(178, 246, 254);
+    padding: 20px;
+    border: solid black;
+}

@@ -2,16 +2,18 @@
 
 export class BancoDeDados {
 
-    static id = 0;
-
     static salvar(cliente) {
-        console.log("TESTE SALVAR");
+        
         localStorage.setItem(BancoDeDados.pegarid(), JSON.stringify({
+
             nome: cliente.nome,
             cnh: cliente.cnh,
+            veiculo: cliente.veiculo,
         }));
 
     }
+
+
 
     static pegarid() {
         

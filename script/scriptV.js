@@ -17,16 +17,25 @@ const formveiculo = document.getElementById("formveiculo").addEventListener("sub
 
     const idpage = window.location.search.substring(0);
 
-   
+    
     if (idpage) {
 
         const temp = JSON.parse(localStorage.getItem("temp")) || [];
 
-        let veiculo = new Veiculo(placa, modelo, cor);
-        let cliente = new Cliente(temp.nome, temp.cnh, veiculo);
+        let idClient = BancoDeDados.pegarid();
 
-        BancoDeDados.salvar(cliente);
+
+        let veiculo = new Veiculo(placa, modelo, cor,idClient);
+        let cliente = new Cliente(temp.nome, temp.cnh);
+
+    
+        
+        BancoDeDados.salvar(idClient,cliente);
+        BancoDeDados.salvarVeisulo(veiculo);
         localStorage.removeItem("temp");
+        window.location.href = "CadastrarCliente.html";
+        
+        
 
 
     }

@@ -1,17 +1,39 @@
 *{
     text-align: center;
+    box-sizing: border-box;
 
 }
-main{
+body{
+    max-width: 300px;
+    margin: 0 auto;
+}
+.estacionamento{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 10px;
     
 }
-div{
+.estacionamento div{
     background-color: azure;
     width: 100px;
     height: 50px;
     border: solid black;
     cursor: pointer;
+}
+.clientes, .vagas,.veiculo{
+    margin: 20px auto;
+    text-align: left;
+}
+.title{
+    text-align: left;
+}
+.card{
+    background-color: cadetblue;
+    padding: 20px;
+    margin: 20px auto;
+    border: solid black;
+  
+}
+.estacionar{
+    display: flex;
 }

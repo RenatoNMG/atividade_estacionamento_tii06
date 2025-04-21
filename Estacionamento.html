@@ -1,26 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estacionamento</title>
     <link rel="stylesheet" href="styles/styleE.css">
 </head>
+
 <body>
 
     <h1>Estacionamento</h1>
 
     <main>
-        
-        <div><p>1</p></div>
-        <div><p>2</p></div>
-        <div><p>3</p></div>
-        <div><p>4</p></div>
-        <div><p>5</p></div>
-        <div><p>6</p></div>
-        <div><p>7</p></div>
-        <div><p>8</p></div>
-    </main>
+        <div class="estacionamento">
+            <div>
+                <p>1</p>
+            </div>
+            <div>
+                <p>2</p>
+            </div>
+            <div>
+                <p>3</p>
+            </div>
+            <div>
+                <p>4</p>
+            </div>
+            <div>
+                <p>5</p>
+            </div>
+            <div>
+                <p>6</p>
+            </div>
+            <div>
+                <p>7</p>
+            </div>
+            <div>
+                <p>8</p>
+            </div>
+
+        </div>
+        <aside class="card">
+            <h2 class="title">Selecione o Cliente</h2>
+            <div class="clientes">
+                
+                <select name="cliente" id="cliente">
+                    <option value="cliente">Selecione um Cliente</option>
+                </select>
+            </div>
+            <div class="veiculo">
+                <select name="veiculos" id="veiculos">
+                    <option value="vazio">Selecione um Veiculo</option>
+
+                </select>
+                
+            </div>
+            <div class="vagas">
+                <select name="vagav" id="vagav">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                </select>
+
+            </div>
+            
+            <button id="estacionar" class="estacionar">Estacionar</button>
     
+        </aside>
+        
+    </main>
+    <script src="script/Estacionamento.js"></script>
+
 </body>
+
 </html>

@@ -2,13 +2,23 @@
 
 export class BancoDeDados {
 
-    static salvar(cliente) {
-        
-        localStorage.setItem(BancoDeDados.pegarid(), JSON.stringify({
+    static salvar(id,cliente) {
 
+     
+        localStorage.setItem(id, JSON.stringify({
             nome: cliente.nome,
             cnh: cliente.cnh,
-            veiculo: cliente.veiculo,
+        }));
+
+    }
+    static salvarVeisulo(veiculo){
+        localStorage.setItem(BancoDeDados.pegarid(), JSON.stringify({
+
+           placa: veiculo.placa,
+           modelo: veiculo.modelo,
+           cor: veiculo.cor,
+           idClient: veiculo.idClient
+
         }));
 
     }
@@ -16,9 +26,12 @@ export class BancoDeDados {
 
 
     static pegarid() {
-        
-        let id = localStorage.length;
-        return id + 1;
+
+        let id = 0;
+        while (localStorage.getItem(id)) {
+            id++
+        }
+        return id;
     }
 
 

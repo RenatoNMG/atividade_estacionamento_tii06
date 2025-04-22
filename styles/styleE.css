@@ -1,39 +1,122 @@
-*{
-    text-align: center;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
+}
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    padding: 20px;
 }
-body{
-    max-width: 300px;
-    margin: 0 auto;
+
+h1 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 15px;
+    color: #333;
 }
-.estacionamento{
+
+main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.estacionamento {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(4, 60px);
     gap: 10px;
-    
+    padding: 10px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
 }
-.estacionamento div{
-    background-color: azure;
-    width: 100px;
-    height: 50px;
-    border: solid black;
+
+.estacionamento div {
+    width: 60px;
+    height: 60px;
+    background-color: #d4edda;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    text-align: center;
+    color: #333;
+}
+
+.estacionamento div.ocupado {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+aside.card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    width: 280px;
+}
+
+aside.card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+aside.card select,
+aside.card button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 0.85rem;
+}
+
+button.estacionar {
+    background-color: #28a745;
+    color: white;
+    font-weight: bold;
+    border: none;
     cursor: pointer;
 }
-.clientes, .vagas,.veiculo{
-    margin: 20px auto;
-    text-align: left;
+
+button.estacionar:hover {
+    background-color: #218838;
 }
-.title{
-    text-align: left;
+
+button#link {
+    background-color: #007bff;
 }
-.card{
-    background-color: cadetblue;
-    padding: 20px;
-    margin: 20px auto;
-    border: solid black;
-  
+
+button#link a {
+    color: white;
+    text-decoration: none;
+    display: block;
 }
-.estacionar{
-    display: flex;
+
+button#link:hover {
+    background-color: #0056b3;
+}
+
+
+@media (max-width: 600px) {
+    .estacionamento {
+        grid-template-columns: repeat(4, 50px);
+        gap: 8px;
+    }
+
+    .estacionamento div {
+        width: 50px;
+        height: 50px;
+        font-size: 0.55rem;
+    }
+
+    aside.card {
+        width: 100%;
+    }
 }

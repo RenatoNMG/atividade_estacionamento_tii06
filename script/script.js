@@ -2,6 +2,9 @@ import { BancoDeDados } from './BancoDeDados.js';
 import { Cliente } from './Cliente.js';
 
 
+ const clientesCadastrados = document.getElementById("clientesCadastrados");
+
+
 
 
 
@@ -46,3 +49,23 @@ const form = document.getElementById("formulario").addEventListener("submit", (e
 
     }
 });
+
+
+window.addEventListener("load", ()=>{
+
+    for(let i = 0; i < localStorage.length;i++){
+        let client = JSON.parse(localStorage.getItem(i));
+        
+        if(client.nome){
+            let mostrar = document.createElement("p");
+            mostrar.textContent = `Nome: ${client.nome}`;
+            clientesCadastrados.appendChild(mostrar);
+        }
+      
+        
+    }
+
+})
+
+
+

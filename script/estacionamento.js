@@ -1,4 +1,5 @@
 let listATual = document.querySelectorAll("#cliente option");
+let estacionamento = document.querySelectorAll("#estacionamento div");
 let list = document.getElementById("cliente");
 let estacionar = document.getElementById("estacionar");
 let vagav = document.getElementById("vagav");
@@ -57,13 +58,26 @@ list.addEventListener("change", (event) => {
 
 estacionar.addEventListener("click", () => {
     let lista = list.value;
-    let vagaAtual = vagav.value;
+    let vagaAtual = vagav.value -1;
 
     if (lista === "cliente") {
         alert("Selecione um Cliente");
     } else {
+        confimar = confirm(`estacionar o veciculo do(a): ${lista} na Vaga: ${vagaAtual}`);
+        conteudoDaVaga = estacionamento[vagaAtual].textContent.trim();
+     
+        
 
-        confirm(`estacionar o veciculo do(a): ${lista} na Vaga: ${vagaAtual}`);
+        if(confimar && !conteudoDaVaga.startsWith("Vaga ocupada")){
+
+            estacionamento[vagaAtual].style.background = "red";
+            estacionamento[vagaAtual].style.color = "white";
+            estacionamento[vagaAtual].textContent = `Vaga ocupada ${lista}`
+
+        }else{
+            alert(`a vaga esta ocupada`);
+        }
+        
     }
 
 })

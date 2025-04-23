@@ -100,7 +100,7 @@ button#link a {
 }
 
 button#link:hover {
-    background-color: #0056b3;
+    background-color: #1f66b3;
 }
 
 
@@ -115,6 +115,7 @@ button#link:hover {
         height: 50px;
         font-size: 0.55rem;
     }
+ 
 
     aside.card {
         width: 100%;

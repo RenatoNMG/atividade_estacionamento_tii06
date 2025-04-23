@@ -3,6 +3,7 @@ let estacionamento = document.querySelectorAll("#estacionamento div");
 let list = document.getElementById("cliente");
 let estacionar = document.getElementById("estacionar");
 let vagav = document.getElementById("vagav");
+let vagas = document.getElementById("#vagav option");
 let veiculos = document.getElementById("veiculos");
 
 
@@ -19,8 +20,6 @@ window.addEventListener("load", () => {
                 cli = document.createElement("option");
                 cli.textContent = clienteAtual.nome;
                 list.appendChild(cli);
-
-
             }
 
         }
@@ -28,6 +27,7 @@ window.addEventListener("load", () => {
     }
 
 });
+
 list.addEventListener("change", (event) => {
     let client = event.target.selectedOptions[0].value;
     let clienteid;
@@ -58,26 +58,54 @@ list.addEventListener("change", (event) => {
 
 estacionar.addEventListener("click", () => {
     let lista = list.value;
-    let vagaAtual = vagav.value -1;
+    let vagaAtual = vagav.value - 1;
+
 
     if (lista === "cliente") {
         alert("Selecione um Cliente");
     } else {
-        confimar = confirm(`estacionar o veciculo do(a): ${lista} na Vaga: ${vagaAtual}`);
-        conteudoDaVaga = estacionamento[vagaAtual].textContent.trim();
-     
-        
 
-        if(confimar && !conteudoDaVaga.startsWith("Vaga ocupada")){
+        conteudoDaVaga = estacionamento[vagaAtual].textContent.trim();
+        ocupado = true;
+        vagOcupada = 0;
+
+
+
+        for (let j = 0; j < estacionamento.length; j++) {
+            if (estacionamento[j].textContent === `Vaga ocupada ${lista}`) {
+                ocupado = false;
+                vagOcupada = j;
+
+            }
+
+        }
+        if (ocupado  && !conteudoDaVaga.startsWith("Vaga ocupada")) {
+            confimar = confirm(`estacionar o veciculo do(a): ${lista} na Vaga: ${vagaAtual + 1}`);
+
+        }
+
+        if (confimar && !conteudoDaVaga.startsWith("Vaga ocupada") && ocupado) {
 
             estacionamento[vagaAtual].style.background = "red";
             estacionamento[vagaAtual].style.color = "white";
-            estacionamento[vagaAtual].textContent = `Vaga ocupada ${lista}`
+            estacionamento[vagaAtual].textContent = `Vaga ocupada ${lista}`;
 
-        }else{
+
+        } else if (!ocupado) {
+
+            let retirarVeiculo = confirm(`Carro Já Estacionado, Remover o Veiculo do(a) ${lista} do Estacionamento`);
+            if (retirarVeiculo) {
+                estacionamento[vagOcupada].style.background = "#d4edda";
+                estacionamento[vagOcupada].style.color = "black";
+                estacionamento[vagOcupada].textContent = `${vagOcupada + 1}`;
+
+            }
+
+
+        } else {
             alert(`a vaga esta ocupada`);
         }
-        
+
     }
 
 })

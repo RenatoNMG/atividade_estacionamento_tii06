@@ -2,7 +2,7 @@ import { BancoDeDados } from './BancoDeDados.js';
 import { Cliente } from './Cliente.js';
 
 
- const clientesCadastrados = document.getElementById("clientesCadastrados");
+const clientesCadastrados = document.getElementById("clientesCadastrados");
 
 
 
@@ -31,7 +31,7 @@ const form = document.getElementById("formulario").addEventListener("submit", (e
             nome: nome,
             cnh: cnh,
         }))
-        window.location.href = "cadastro-veiculo.html?id=1"
+        window.location.href = "cadastro-veiculo.html?id=1000"
 
 
 
@@ -51,18 +51,18 @@ const form = document.getElementById("formulario").addEventListener("submit", (e
 });
 
 
-window.addEventListener("load", ()=>{
+window.addEventListener("load", () => {
 
-    for(let i = 0; i < localStorage.length;i++){
+    for (let i = 0; i < localStorage.length; i++) {
         let client = JSON.parse(localStorage.getItem(i));
-        
-        if(client.nome){
+
+        if (client.nome) {
             let mostrar = document.createElement("p");
-            mostrar.textContent = `Nome: ${client.nome}`;
+            mostrar.innerHTML = `Nome: ${client.nome} <button class="clientesEdit"><a href="cadastro-veiculo.html?id=${i}">Editar</a></button>`;
             clientesCadastrados.appendChild(mostrar);
         }
-      
-        
+
+
     }
 
 })

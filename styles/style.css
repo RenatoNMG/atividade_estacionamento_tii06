@@ -15,7 +15,7 @@ body {
     align-items: center;
 }
 
-form#formulario {
+form#formulario, .clientesCadastrados {
     background-color: #fff;
     padding: 30px;
     border-radius: 15px;
@@ -38,7 +38,7 @@ form label {
 }
 
 form input,
-form select {
+form select{
     width: 100%;
     padding: 10px;
     margin-bottom: 15px;
@@ -64,6 +64,7 @@ form button {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s;
+    margin: 5px auto;
 }
 
 form button a {
@@ -73,4 +74,34 @@ form button a {
 
 form button:hover {
     background-color: #0056b3;
+}
+.iniciar{
+    margin: 30px;
+    padding: 20px 40px;
+}
+.clientesCadastrados{
+    width: 400px;
+    margin: 10px
+    
+
+}
+@media (max-width: 400px ){
+    .clientesCadastrados{
+        width: 200px;
+    }
+
+}
+.clientesCadastrados p{
+    padding: 5px;
+    border: solid 1px black;
+    
+}
+.clientesEdit{
+    margin: auto 10px;
+}
+.clientesEdit a{
+    text-decoration: none;
+    color: black;
+    margin: auto 10px;
+
 }

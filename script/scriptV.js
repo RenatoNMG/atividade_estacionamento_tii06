@@ -15,30 +15,35 @@ const formveiculo = document.getElementById("formveiculo").addEventListener("sub
     const modelo = document.getElementById("modelo").value;
     const cor = document.getElementById("cor").value;
 
-    const idpage = window.location.search.substring(0);
-
     
-    if (idpage) {
+    const idpage = new URLSearchParams(window.location.search);
+    const idDAPage = parseInt(idpage.get('id'));
+
+    alert(idDAPage);
+
+
+    if (idDAPage === 1000) {
 
         const temp = JSON.parse(localStorage.getItem("temp")) || [];
-
         let idClient = BancoDeDados.pegarid();
 
 
-        let veiculo = new Veiculo(placa, modelo, cor,idClient);
+        let veiculo = new Veiculo(placa, modelo, cor, idClient);
         let cliente = new Cliente(temp.nome, temp.cnh);
 
-    
-        
-        BancoDeDados.salvar(idClient,cliente);
+
+
+        BancoDeDados.salvar(idClient, cliente);
         BancoDeDados.salvarVeisulo(veiculo);
         localStorage.removeItem("temp");
         window.location.href = "CadastrarCliente.html";
-        
-        
-
+    }else{
+        let veiculo = new Veiculo(placa, modelo, cor, idDAPage);
+        BancoDeDados.salvarVeisulo(veiculo);
+        window.location.href = "CadastrarCliente.html";
 
     }
+    
 
 
 

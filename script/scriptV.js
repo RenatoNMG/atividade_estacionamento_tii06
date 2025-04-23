@@ -1,6 +1,6 @@
 import { BancoDeDados } from './BancoDeDados.js';
 import { Cliente } from './Cliente.js';
-import { Veiculo } from './veiculo.js';
+import { Veiculo } from './veiculo.js'
 
 
 
@@ -15,7 +15,7 @@ const formveiculo = document.getElementById("formveiculo").addEventListener("sub
     const modelo = document.getElementById("modelo").value;
     const cor = document.getElementById("cor").value;
 
-    
+
     const idpage = new URLSearchParams(window.location.search);
     const idDAPage = parseInt(idpage.get('id'));
 
@@ -35,13 +35,13 @@ const formveiculo = document.getElementById("formveiculo").addEventListener("sub
         BancoDeDados.salvarVeisulo(veiculo);
         localStorage.removeItem("temp");
         window.location.href = "CadastrarCliente.html";
-    }else{
+    } else {
         let veiculo = new Veiculo(placa, modelo, cor, idDAPage);
         BancoDeDados.salvarVeisulo(veiculo);
         window.location.href = "CadastrarCliente.html";
 
     }
-    
+
 
 
 

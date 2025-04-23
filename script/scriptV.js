@@ -1,8 +1,6 @@
 import { BancoDeDados } from './BancoDeDados.js';
-import { Veiculo } from './veiculo.js';
 import { Cliente } from './Cliente.js';
-
-
+import { Veiculo } from './Veiculo.js';
 
 
 //cadastro veiculo;

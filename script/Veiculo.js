@@ -1,5 +1,5 @@
 
-export class Veiculo{
+export class veiculo{
     #placa;
     #modelo;
     #cor;

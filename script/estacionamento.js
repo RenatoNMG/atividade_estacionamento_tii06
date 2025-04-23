@@ -9,6 +9,8 @@ let veiculos = document.getElementById("veiculos");
 
 let clienteAtual;
 
+
+// adiciona os clientes ao estacionamento
 window.addEventListener("load", () => {
 
     for (let i = 0; i < localStorage.length; i++) {
@@ -27,6 +29,9 @@ window.addEventListener("load", () => {
     }
 
 });
+
+
+// seleciona o veiculo do cliente
 
 list.addEventListener("change", (event) => {
     let client = event.target.selectedOptions[0].value;
@@ -56,10 +61,12 @@ list.addEventListener("change", (event) => {
 
 });
 
+
+//Estacionar o veiculo
 estacionar.addEventListener("click", () => {
     let lista = list.value;
     let vagaAtual = vagav.value - 1;
-
+    
 
     if (lista === "cliente") {
         alert("Selecione um Cliente");
@@ -72,6 +79,7 @@ estacionar.addEventListener("click", () => {
 
 
         for (let j = 0; j < estacionamento.length; j++) {
+            
             if (estacionamento[j].textContent === `Vaga ocupada ${lista}`) {
                 ocupado = false;
                 vagOcupada = j;
@@ -84,7 +92,7 @@ estacionar.addEventListener("click", () => {
 
         }
 
-        if (confimar && !conteudoDaVaga.startsWith("Vaga ocupada") && ocupado) {
+        if (confimar && !conteudoDaVaga.startsWith("Vaga ocupada") &&  veiculos.hasChildNodes()) {
 
             estacionamento[vagaAtual].style.background = "red";
             estacionamento[vagaAtual].style.color = "white";
@@ -102,7 +110,10 @@ estacionar.addEventListener("click", () => {
             }
 
 
-        } else {
+        }else if(!veiculos.hasChildNodes()){
+            alert(`Esse Cliente não tem Veiculo Cadastrado`);
+
+        } else{
             alert(`a vaga esta ocupada`);
         }
 

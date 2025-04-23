@@ -19,8 +19,6 @@ const formveiculo = document.getElementById("formveiculo").addEventListener("sub
     const idpage = new URLSearchParams(window.location.search);
     const idDAPage = parseInt(idpage.get('id'));
 
-    alert(idDAPage);
-
 
     if (idDAPage === 1000) {
 
